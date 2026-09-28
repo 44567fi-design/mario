@@ -18,5 +18,9 @@ export default defineConfig(() => {
       // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
       watch: process.env.DISABLE_HMR === 'true' ? null : {},
     },
+    esbuild: {
+      // AI Studio iframe CSP blocks eval() in dev sourcemaps
+      sourcemap: false,
+    },
   };
 });
